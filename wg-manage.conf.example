@@ -1,0 +1,26 @@
+# ── wg-manage configuration ──
+# Copy to: /etc/wireguard/wg-manage.conf
+# chmod 600 /etc/wireguard/wg-manage.conf
+
+WG_DEFAULT_HUB="mn"
+WG_DEFAULT_DNS="1.1.1.1,8.8.8.8"
+WG_KEEPALIVE=25
+WG_BACKUP_KEEP=10
+
+# ── Hub → /16 Subnet mapping ──
+# Each hub gets a /16 subnet. Peers get IPs from their hub's subnet.
+# Hub names: mn, sgp, us, eu (customize as needed)
+WG_HUB_MN_SUBNET="10.100.0.0/16"
+WG_HUB_SGP_SUBNET="10.101.0.0/16"
+WG_HUB_US_SUBNET="10.102.0.0/16"
+WG_HUB_EU_SUBNET="10.103.0.0/16"
+
+# ── Client AllowedIPs (all active hub subnets, space-separated) ──
+WG_CLIENT_ALLOWED_IPS="10.100.0.0/16 10.101.0.0/16"
+
+# ── Hub Endpoints (for client config generation) ──
+# ALL clients connect to MN hub. Other hubs are for routing only.
+WG_HUB_MN_ENDPOINT="vpn.example.com:51820"
+WG_HUB_SGP_ENDPOINT="sgp.example.com:51820"
+WG_HUB_US_ENDPOINT="us.example.com:51820"
+WG_HUB_EU_ENDPOINT="eu.example.com:51820"

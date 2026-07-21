@@ -1,0 +1,22 @@
+# Private keys — NEVER commit
+*.key
+private.key
+preshared.key
+
+# SQLite DB (binary, changes too often)
+wg-manage.db
+
+# Backups (large archives)
+*.tar.gz
+/backup/
+
+# Temporary files
+*.tmp
+*.swp
+
+# Backup files from masking operations
+*.md.bak
+
+# Git credentials  
+.git-credentials
+.last-github-sync
